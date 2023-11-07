@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://blfirpvkpadag"]
+
+[ext_resource type="Script" path="res://HUD/hud.gd" id="1_d6fm8"]
+[ext_resource type="FontFile" uid="uid://bpar45bx2iuc6" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="2_dfc45"]
+
+[sub_resource type="GDScript" id="GDScript_l11hs"]
+script/source = "extends MarginContainer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_h0fda"]
+font = ExtResource("2_dfc45")
+font_size = 45
+font_color = Color(1, 0.0588235, 0.0941176, 1)
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d6fm8")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 39.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+script = SubResource("GDScript_l11hs")
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer"]
+layout_mode = 2
+text = "000"
+label_settings = SubResource("LabelSettings_h0fda")
